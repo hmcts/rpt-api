@@ -3,7 +3,7 @@
 # Script to initialise project by executing steps as follows:
 #   - Replace port number
 #   - Replace package `demo`
-#   - Replace slug from `spring-boot-template` to one of two (first in first used):
+#   - Replace slug from `rpt-api` to one of two (first in first used):
 #      - user input
 #      - git config value of the root project. Value in use: `remote.origin.url`
 #   - Clean-up README file from template related info
@@ -18,41 +18,41 @@ pushd $(dirname "$0")/.. > /dev/null
 
 slug="$product_name-$component_name"
 
-declare -a files_with_port=(.env Dockerfile README.md src/main/resources/application.yaml charts/rpe-spring-boot-template/values.yaml)
-declare -a files_with_slug=(build.gradle docker-compose.yml Dockerfile README.md ./infrastructure/main.tf ./src/main/java/uk/gov/hmcts/reform/demo/controllers/RootController.java charts/rpe-spring-boot-template/Chart.yaml)
+declare -a files_with_port=(.env Dockerfile README.md src/main/resources/application.yaml charts/rpt-api/values.yaml)
+declare -a files_with_slug=(build.gradle docker-compose.yml Dockerfile README.md ./infrastructure/main.tf ./src/main/java/uk/gov/hmcts/reform/demo/controllers/RootController.java charts/rpt-api/Chart.yaml)
 
 # Replace in CNP file
 for i in "Jenkinsfile_template"
 do
-  perl -i -pe "s/rpe/$product_name/g" ${i}
+  perl -i -pe "s/rpt/$product_name/g" ${i}
   perl -i -pe "s/demo/$component_name/g" ${i}
 done
 
 # Replace image repo
-for i in "charts/rpe-spring-boot-template/values.yaml"
+for i in "charts/rpt-api/values.yaml"
 do
-  perl -i -pe "s/rpe/$product_name/g" ${i}
-  perl -i -pe "s/spring-boot-template/$component_name/g" ${i}
+  perl -i -pe "s/rpt/$product_name/g" ${i}
+  perl -i -pe "s/rpt-api/$component_name/g" ${i}
 done
 
-# Remove "rpe-" prefix from chart name to prepare it for spring-boot-template slug replacement and update maintainer name
-for i in "charts/rpe-spring-boot-template/Chart.yaml"
+# Remove "rpt-" prefix from chart name to prepare it for rpt-api slug replacement and update maintainer name
+for i in "charts/rpt-api/Chart.yaml"
 do
-  perl -i -pe "s/rpe-//g" ${i}
-  perl -i -pe "s/rpe/$product_name/g" ${i}
+  perl -i -pe "s/rpt-//g" ${i}
+  perl -i -pe "s/rpt/$product_name/g" ${i}
 done
 
 # Update mount config and packagesToScan
 for i in "src/main/resources/application.yaml"
 do
-  perl -i -pe "s/rpe/$product_name/g" ${i}
+  perl -i -pe "s/rpt/$product_name/g" ${i}
   perl -i -pe "s/reform.demo/reform.$package/g" ${i}
 done
 
 # Update app insights
 for i in "lib/applicationinsights.json"
 do
-  perl -i -pe "s/rpe/$product_name/g" ${i}
+  perl -i -pe "s/rpt/$product_name/g" ${i}
   perl -i -pe "s/demo/$component_name/g" ${i}
 done
 
@@ -62,10 +62,10 @@ do
   perl -i -pe "s/4550/$port/g" ${i}
 done
 
-# Replace spring-boot-template slug
+# Replace rpt-api slug
 for i in ${files_with_slug[@]}
 do
-  perl -i -pe "s/spring-boot-template/$slug/g" ${i}
+  perl -i -pe "s/rpt-api/$slug/g" ${i}
 done
 
 # Replace demo package in all files under ./src
@@ -74,7 +74,7 @@ find ./.github/workflows -type f -print0 | xargs -0 perl -i -pe "s/reform.demo/r
 perl -i -pe "s/reform.demo/reform.$package/g" build.gradle
 
 # Rename charts directory
-git mv charts/rpe-spring-boot-template charts/${slug}
+git mv charts/rpt-api charts/${slug}
 
 # Rename directory to provided package name
 git mv src/functionalTest/java/uk/gov/hmcts/reform/demo/ src/functionalTest/java/uk/gov/hmcts/reform/${package}
