@@ -119,15 +119,14 @@ Create docker image:
   docker compose build
 ```
 
-Run the distribution (created in `build/install/spring-boot-template` directory)
+Run the distribution (created in `build/install/rpt-api` directory)
 by executing the following command:
 
 ```bash
   docker compose up
 ```
 
-This will start the API container exposing the application's port
-(set to `4550` in this template app).
+This will start the API container exposing the application's port `4550`
 
 In order to test if the application is up, you can call its health endpoint:
 
