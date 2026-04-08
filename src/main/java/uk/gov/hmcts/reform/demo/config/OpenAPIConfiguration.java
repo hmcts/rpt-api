@@ -13,13 +13,13 @@ public class OpenAPIConfiguration {
     @Bean
     public OpenAPI openAPI() {
         return new OpenAPI()
-            .info(new Info().title("rpt api")
-                      .description("rpt api")
+            .info(new Info().title("pt api")
+                      .description("pt api")
                       .version("v0.0.1")
                       .license(new License().name("MIT").url("https://opensource.org/licenses/MIT")))
             .externalDocs(new ExternalDocumentation()
                               .description("README")
-                              .url("https://github.com/hmcts/rpt-api"));
+                              .url("https://github.com/hmcts/pt-api"));
     }
 
 }

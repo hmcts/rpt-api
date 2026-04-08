@@ -119,7 +119,7 @@ Create docker image:
   docker compose build
 ```
 
-Run the distribution (created in `build/install/rpt-api` directory)
+Run the distribution (created in `build/install/pt-api` directory)
 by executing the following command:
 
 ```bash

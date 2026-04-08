@@ -1,11 +1,11 @@
 java:
   applicationPort: 4550
-  image: 'hmctspublic.azurecr.io/rpt/rpt-api:latest'
-  ingressHost: rpt-api-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
-  aadIdentityName: rpt
+  image: 'hmctspublic.azurecr.io/pt/pt-api:latest'
+  ingressHost: pt-api-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
+  aadIdentityName: pt
 #  Uncomment once the vault containing the app insights key has been set up
 #  keyVaults:
-#    rpt:
+#    pt:
 #      secrets:
 #        - name: AppInsightsInstrumentationKey
 #          alias: azure.application-insights.instrumentation-key
