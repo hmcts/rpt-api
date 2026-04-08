@@ -22,9 +22,9 @@ springdoc:
 
 spring:
   config:
-    import: "optional:configtree:/mnt/secrets/rpt/"
+    import: "optional:configtree:/mnt/secrets/pt/"
   application:
-    name: rpt api
+    name: pt api
 #  datasource:
 #    driver-class-name: org.postgresql.Driver
 #    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}${DB_OPTIONS:}
@@ -49,4 +49,4 @@ spring:
 
 azure:
   application-insights:
-    instrumentation-key: ${rpt.AppInsightsInstrumentationKey:00000000-0000-0000-0000-000000000000}
+    instrumentation-key: ${pt.AppInsightsInstrumentationKey:00000000-0000-0000-0000-000000000000}

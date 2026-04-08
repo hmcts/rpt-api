@@ -3,7 +3,7 @@ ARG APP_INSIGHTS_AGENT_VERSION=3.7.8
 FROM hmctspublic.azurecr.io/base/java:21-distroless
 
 COPY lib/applicationinsights.json /opt/app/
-COPY build/libs/rpt-api.jar /opt/app/
+COPY build/libs/pt-api.jar /opt/app/
 
 EXPOSE 4550
-CMD [ "rpt-api.jar" ]
+CMD [ "pt-api.jar" ]

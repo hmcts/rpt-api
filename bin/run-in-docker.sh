@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 print_help() {
-  echo "Script to run docker containers for RPT API service
+  echo "Script to run docker containers for pt API service
 
   Usage:
 

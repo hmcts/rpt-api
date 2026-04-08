@@ -1,14 +1,14 @@
 version: '2.1'
 
 services:
-  rpt-api:
+  pt-api:
     build:
       context: .
       args:
         - http_proxy
         - https_proxy
         - no_proxy
-    image: hmctspublic.azurecr.io/rpt/api
+    image: hmctspublic.azurecr.io/pt/api
     environment:
       # these environment variables are used by java-logging library
       - ROOT_APPENDER
