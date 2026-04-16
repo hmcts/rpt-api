@@ -1,4 +1,4 @@
-# Spring Boot application template
+# pt-api
 
 ## Purpose
 
