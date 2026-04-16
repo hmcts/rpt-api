@@ -17,7 +17,7 @@ management:
         include: health, info, prometheus
 
 springdoc:
-  packagesToScan: uk.gov.hmcts.reform.demo.controllers
+  packagesToScan: uk.gov.hmcts.reform.pt
   writer-with-order-by-keys: true
 
 spring:
@@ -27,7 +27,7 @@ spring:
     name: pt api
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${PT_DB_HOST}:${PT_DB_PORT}/${PT_DB_NAME}${PT_DB_OPTIONS:}
+    url: jdbc:postgresql://${PT_DB_HOST:localhost}:${DB_PORT:5432}/${PT_DB_NAME:pt}${PT_DB_OPTIONS:}
     username: ${PT_DB_USER_NAME}
     password: ${PT_DB_PASSWORD}
     properties:
