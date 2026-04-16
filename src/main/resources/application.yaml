@@ -25,28 +25,28 @@ spring:
     import: "optional:configtree:/mnt/secrets/pt/"
   application:
     name: pt api
-#  datasource:
-#    driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}${DB_OPTIONS:}
-#    username: ${DB_USER_NAME}
-#    password: ${DB_PASSWORD}
-#    properties:
-#      charSet: UTF-8
-#    hikari:
-#      minimumIdle: 2
-#      maximumPoolSize: 10
-#      idleTimeout: 10000
-#      poolName: {to-be-defined}HikariCP
-#      maxLifetime: 7200000
-#      connectionTimeout: 30000
-#  jpa:
-#    properties:
-#      hibernate:
-#        jdbc:
-#          lob:
-#            # silence the 'wall-of-text' - unnecessary exception throw about blob types
-#            non_contextual_creation: true
-
-azure:
-  application-insights:
-    instrumentation-key: ${pt.AppInsightsInstrumentationKey:00000000-0000-0000-0000-000000000000}
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${PT_DB_HOST:localhost}:${DB_PORT:5432}/${PT_DB_NAME:pt}${PT_DB_OPTIONS:}
+    username: ${PT_DB_USER_NAME}
+    password: ${PT_DB_PASSWORD}
+    properties:
+      charSet: UTF-8
+    hikari:
+      minimumIdle: 2
+      maximumPoolSize: 10
+      idleTimeout: 10000
+      poolName: PtHikariCP
+      maxLifetime: 7200000
+      connectionTimeout: 30000
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+         lob:
+            # silence the 'wall-of-text' - unnecessary exception throw about blob types
+            non_contextual_creation: true
+  azure:
+    application-insights:
+      instrumentation-key: ${pt.AppInsightsInstrumentationKey:00000000-0000-0000-0000-000000000000}
+ 
