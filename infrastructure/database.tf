@@ -20,18 +20,18 @@ module "postgresql" {
 
   product       = var.product
   component     = var.component
-  name        = "${var.product}"
+  name          = var.product
   business_area = "cft"
 
   subnet_suffix = "expanded"
-  common_tags = var.common_tags
+  common_tags   = var.common_tags
   pgsql_databases = [
     {
       name : var.product
     }
   ]
 
-  pgsql_version = var.pgsql_version
+  pgsql_version        = var.pgsql_version
   admin_user_object_id = var.jenkins_AAD_objectId
 }
 
@@ -51,5 +51,5 @@ resource "azurerm_key_vault_secret" "POSTGRES-PASS" {
 resource "azurerm_key_vault_secret" "POSTGRES_HOST" {
   name         = "${var.component}-POSTGRES-HOST"
   value        = module.postgresql.fqdn
-  key_vault_id = data.azurerm_key_vault.pt_key_vault.id 
+  key_vault_id = data.azurerm_key_vault.pt_key_vault.id
 }
