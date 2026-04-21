@@ -155,7 +155,7 @@ dependencies {
   implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.10'
 
   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
-  testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.5.7'
+  testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '6.0.0'
 }
 
 bootJar {
