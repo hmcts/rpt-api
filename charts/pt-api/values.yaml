@@ -20,3 +20,7 @@ java:
     PT_DB_PASSWORD:
       secretRef: "{{ .Values.global.postgresSecret }}"
       key: password
+ccd:
+  enabled: false
+xui-webapp:
+  enabled: false
