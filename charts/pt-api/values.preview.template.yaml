@@ -20,7 +20,7 @@ ccd:
   enabled: true
   ccd:
     adminWeb:
-      enabled: true
+      enabled: false
     definitionImporter:
       enabled: false
     userProfile:
@@ -30,11 +30,11 @@ ccd:
     s2s:
       enabled: false
     apiGatewayWeb:
-      enabled: true
+      enabled: false
     ras:
       enabled: false
     elastic:
-      enabled: true
+      enabled: false
   ccd-definition-store-api:
     java:
       devmemoryRequests: '1024Mi'
